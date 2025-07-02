@@ -5,6 +5,7 @@ import streamlit as st
 # Se importa la función col para FRUIT_NAME
 from snowflake.snowpark.functions import col
 import requests
+import pandas as pd
 
 # st.text(smoothiefroot_response.json())
 
@@ -25,9 +26,13 @@ cnx = st.connection("snowflake")
 session = cnx.session()
 
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'), col('SEARCH_ON'))
-st.dataframe(data=my_dataframe, use_container_width=True)
-st.stop()
+# st.dataframe(data=my_dataframe, use_container_width=True)
+# st.stop()
 
+# Convert the snowpark Dataframe to a pandas Dataframe so we can use the loc function
+pd_df= my_dataframe.to_pandas()
+st.dataframe(pd_df)
+st.stop()
 
 # ingredients_list = st.multiselect('Escoge hasta 5 ingredientes:', my_dataframe, max_selections=5)
 
