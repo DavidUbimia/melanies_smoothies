@@ -4,7 +4,11 @@ import streamlit as st
 
 # Se importa la función col para FRUIT_NAME
 from snowflake.snowpark.functions import col
+import requests
 
+
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
 
 
 # Write directly to the app
