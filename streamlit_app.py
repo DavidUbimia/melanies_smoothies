@@ -64,8 +64,8 @@ if ingredients_list:
             values ('""" + ingredients_string + """','""" + name_on_order + """')"""
     
     #Se quitan los espacios
-    my_insert_stmt = my_insert_stmt.strip().replace(" ", "_")
-    st.write(my_insert_stmt)
+    
+    # st.write(my_insert_stmt)
   
     time_to_insert = st.button('Realizar pedido')
 
