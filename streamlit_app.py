@@ -19,6 +19,7 @@ st.write(
 # Add a Name Box for Smoothie Orders
 # st.write("Tu fruta favorita es:", option)
 name_on_order = st.text_input("Nombre en el Smoothie:")
+name_on_order = name_input.strip().capitalize()
 st.write("El nombre en tu Smoothie será:", name_on_order)
 
 # session = get_active_session()
@@ -56,7 +57,9 @@ if ingredients_list:
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
             values ('""" + ingredients_string + """',' """ + name_on_order + """')"""
-
+    
+    #Se quitan los espacios
+    my_insert_stmt = my_insert_stmt.strip().replace(" ", "")
     # st.write(my_insert_stmt)
     time_to_insert = st.button('Realizar pedido')
 
