@@ -19,7 +19,12 @@ st.write(
 # Add a Name Box for Smoothie Orders
 # st.write("Tu fruta favorita es:", option)
 name_on_order = st.text_input("Nombre en el Smoothie:")
-name_on_order = name_input.strip().capitalize()
+
+if name_input:
+    name_on_order = name_input.strip().capitalize()
+else:
+    name_on_order = ""
+
 st.write("El nombre en tu Smoothie será:", name_on_order)
 
 # session = get_active_session()
