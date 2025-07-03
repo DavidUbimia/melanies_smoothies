@@ -20,8 +20,8 @@ st.write(
 # st.write("Tu fruta favorita es:", option)
 name_on_order = st.text_input("Nombre en el Smoothie:")
 
-if name_input:
-    name_on_order = name_input.strip().capitalize()
+if name_on_order:
+    name_on_order = name_on_order.strip().capitalize()
 else:
     name_on_order = ""
 
